@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />	
+		<meta charset='utf-8'/>
+		<title>test page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0; font-family: 'Oswald', sans-serif;}
+			ul,ol {list-style:none;}
+			a {text-decoration:none; color:black;}
+			body {overflow-x:hidden;}
+			body::-webkit-scrollbar {display: none;}
+			.hid {overflow:hidden; padding-right:10px;}
+			.hid:nth-child(2) {height:80px;}
+			.ehid:nth-child(2) {height:110px; margin-bottom:15px;}
+			.t {position:relative; top:100px;}
+			
+			.title {font-weight:bold; font-size:80px;}
+			.subtitle {font-size:48px;}
+			.ttitle{font-size:44px;}
+			.bodytext {font-family: 'Nanum Gothic', sans-serif; font-weight:bold; line-height:28px;}
+			
+			.more {font-size:32px; color:white;
+				   display:inline; padding:0px 30px 5px 30px; border-radius:5px;
+				   position:relative; top:30px; opacity:0;}
+			.lnb {position:fixed; top:50%; right:20px; transform:translateY(-50%); z-index:99;}
+			.lnb ul {transform:rotateZ(180deg);}
+			.lnb li {width:20px; height:20px; border-radius:20px; 
+					 margin:15px 0px; background:white; cursor:pointer;}
+			.sec0 .gnb {height:60px;  position:relative; 
+				  box-shadow:5px 0px 5px 3px #353535; background:white; z-index:99;}
+			.sec0 .gnb .snsWrap {position:absolute; top:15px; left:28px;}
+			.sec0 .gnb i {font-size:28px; margin-left:12px;}
+			.sec0 .gnb .logo {width:45px; position:absolute; top:5px; left:50%; transform:translateX(-50%);}
+			.sec0 .gnb ul {position:absolute; top:5px; right:30px; line-height:40px;}
+			.sec0 .gnb ul li {float:left; margin-right:28px; font-size:24px;}
+			.sec0 .gnb ul li a:hover {color:orange;}
+			
+			.sec0 .contain {background:black; height:100vh; margin-top:-60px;}
+			.sec0 .p1 {position:absolute; top:50%; left:50%; 
+					    transform:translateX(-50%) translateY(-50%); 
+						opacity:.2; z-index:1;}
+			.sec0 .filter {width:100%; height:100vh; background:url('./images/g1.png') no-repeat 50% 50%;
+							background-size:cover; opacity:.8; z-index:50;}
+			.sec0 .contain video {height:100vh; position:absolute; top:0; left:50%; z-index:0; transform:translateX(-50%);}
+			.sec0 .contain .textwrap {text-align:center; color:#353535;
+									   position:absolute; top:50%; left:50%; 
+									   transform:translateX(-50%) translateY(-50%); z-index:2;}
+			
+			
+			
+			.sec0 .contain .textwrap .title {font-size:80px; font-weight:bold;}
+			.sec0 .contain .textwrap .subtitle {font-size:40px;}
+			.sec0 .contain .textwrap i {font-size:40px; position:absolute; cursor:pointer; visibility:hidden;}
+			.sec0 .contain .textwrap i.fa-pause {visibility:visible;}
+			
+			section a {color:white;}
+			.sec1 {width:100%; height:100vh; position:relative;
+				   background:url('./images/b1.png') no-repeat 50% 50%;
+				   background-size:cover;}
+			 
+			.sec1 .solid {width:100%; height:100vh; 
+						  position:absolute; top:0; left:-100%; 
+						  opacity:.4; background:#851d1a;}
+			.sec1 .solid2 {width:50%; height:100vh; 
+						  position:absolute; top:0; left:-50%; 
+						  background:#851d1a;}			  
+			.sec1 .textwrap {position:absolute; top:50%; left:25%; text-align:right; color:white;
+							 transform:translateX(-50%) translateY(-50%);}
+							 			
+			
+			.sec1 .subtextwrap {position:absolute; top:50%; left:75%; color:white;
+							 transform:translateX(-50%) translateY(-50%); z-index:99;}
+			
+			.sec1 .bodytext {width:400px; font-size:16px;}
+			.sec1 .more {background:#f6d50c;}
+			.sec2 {width:100%; height:100vh; position:relative;
+				   background:url('./images/b2.png') no-repeat 50% 50%;
+				   background-size:cover;}
+			 
+			.sec2 .solid {width:100%; height:100vh; 
+						  position:absolute; top:0; right:-100%; 
+						  opacity:.4; background:#4f3f31;}
+			.sec2 .solid2 {width:50%; height:100vh; 
+						  position:absolute; top:0; right:-50%; 
+						  background:#4f3f31;}			  
+			.sec2 .textwrap {position:absolute; top:50%; left:75%; color:white;
+							 transform:translateX(-50%) translateY(-50%);}
+			
+			
+			.sec2 .subtextwrap {position:absolute; top:50%; left:25%; color:white;  text-align:right;
+							 transform:translateX(-50%) translateY(-50%); z-index:99;}
+			
+			.sec2 .bodytext {width:400px; font-size:16px;}
+			.sec2 .more {background:#654b34;}
+			.sec3 {width:100%; height:100vh; position:relative;
+				   background:url('./images/b4.png') no-repeat 50% 50%;
+				   background-size:cover;}
+			 
+			.sec3 .solid {width:100%; height:100vh; 
+						  position:absolute; top:0; left:-100%;
+						  opacity:.4; background:#739c26;}
+			.sec3 .solid2 {width:50%; height:100vh; 
+						  position:absolute; top:0; left:-50%;
+						  background:#739c26;}			  
+			.sec3 .textwrap {position:absolute; top:50%; left:25%; color:white; text-align:right;
+							 transform:translateX(-50%) translateY(-50%);}
+					
+			.sec3 .subtextwrap {position:absolute; top:50%; left:75%; color:white; 
+							 transform:translateX(-50%) translateY(-50%); z-index:99;}
+			
+			.sec3 .bodytext {width:400px; font-size:16px;}
+			.sec3 .more {background:#e96e69;}
+			
+			.sec4 {width:100%; height:100vh; position:relative;}
+			.sec4 .iwrap {width:33.333%; height:100vh; position:relative; float:left;}
+			.sec4 .iwrap:nth-child(1) {background:url('./images/b1.png') no-repeat 50% 50%; 
+									   background-size:cover;}
+			.sec4 .iwrap:nth-child(2) {background:url('./images/b2.png') no-repeat 50% 50%; 
+									   background-size:cover;}
+			.sec4 .iwrap:nth-child(3) {background:url('./images/b4.png') no-repeat 85% 85%; 
+									   background-size:cover;}
+			
+			.sec4 .solid {width:100%; height:100vh; position:absolute; top:0; left:0; opacity:.4;}			
+			.sec4 .iwrap:nth-child(1) .solid {background:#851d1a;}						   
+			.sec4 .iwrap:nth-child(2) .solid {background:#4f3f31;}						   
+			.sec4 .iwrap:nth-child(3) .solid {background:#739c26;}
+
+			.sec4 .solid2 {width:100%; height:280px; position:absolute; bottom:0; left:0; }
+			.sec4 .iwrap:nth-child(1) .solid2 {background:#851d1a;}						   
+			.sec4 .iwrap:nth-child(2) .solid2 {background:#4f3f31;}						   
+			.sec4 .iwrap:nth-child(3) .solid2 {background:#739c26;}
+			.sec4 .iwrap .textwrap {width:100%; height:250px;
+									position:absolute; bottom:0; color:white; padding:30px;}
+			.sec4 .iwrap .textwrap .wrap {position:relative; top:50%; transform:translateY(-50%);}						
+			.sec4 i {position:absolute; right:50px; bottom:100px; 
+					 color:white; font-size:100px; 
+					 z-index:99;}
+			
+			
+			
+			
+
+			
+		</style>
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+		<script>
+			<!--
+				$(document).ready(function(){
+					$(window).stellar({horizontalScrolling:false, hideDistantElements: false});
+					$(window).stellar({scrollProperty: 'transform'});
+																									
+					var mh = $(window).height();					
+					var e = 0;
+					
+					$(".sec0 .textwrap .title").animate({top:0},800);
+					$(".sec0 .textwrap .subtitle").delay(50).animate({top:0},800);
+															
+					$(".fa-pause").click(function(){
+						$(this).css({"visibility":"hidden"});
+						$(".fa-play").css({"visibility":"visible"});
+					});
+					
+					$(".fa-play").click(function(){
+						$(this).css({"visibility":"hidden"});
+						$(".fa-pause").css({"visibility":"visible"});
+					});
+					
+					
+					$("html").on("mousewheel",function(event,delta){
+						event.preventDefault();												
+						if(delta>0){
+							e--;
+							if(e<0){
+								e=0;
+							};
+						}else {
+							e++;
+							if(e>4){
+								e=4;
+							};
+						};						
+						$(this).stop().animate({scrollTop:mh*e},500);																			
+					});
+					
+					$(window).scroll(function(){
+						var sl =  Math.ceil($(window).scrollTop());
+						
+						$(".lnb li").eq(4).on("click",function(){
+							$("html").stop().animate({scrollTop:0});
+							e=0;
+						});
+						
+						$(".lnb li").eq(3).on("click",function(){
+							$("html").stop().animate({scrollTop:mh});
+							e=1;
+						});
+						
+						$(".lnb li").eq(2).on("click",function(){
+							$("html").stop().animate({scrollTop:mh*2});
+							e=2;
+						});
+						
+						$(".lnb li").eq(1).on("click",function(){
+							$("html").stop().animate({scrollTop:mh*3});
+							e=3;
+						});
+						
+						$(".lnb li").eq(0).on("click",function(){
+							$("html").stop().animate({scrollTop:mh*4});
+							e=4;
+						});
+						
+						if(sl==0){
+							$(".lnb li").animate({"width":20});
+							$(".lnb li").eq(4).animate({"width":75});
+							$(".sec0 .textwrap .title").stop().animate({top:0});
+							$(".sec0 .textwrap .subtitle").stop().delay(50).animate({top:0});
+							
+						}
+						
+						else {
+							
+							$(".sec0 .textwrap .title").stop().animate({top:100});
+							$(".sec0 .textwrap .subtitle").stop().animate({top:100});	
+							
+						};
+						
+						if(sl==mh){
+							$(".lnb li").animate({"width":20});
+							$(".lnb li").eq(3).animate({"width":75});
+							$(".sec1 .title").stop().animate({top:0});
+							$(".sec1 .subtitle").stop().delay(50).animate({top:0});
+							$(".sec1 .ttitle").stop().delay(100).animate({top:0});
+							$(".sec1 .bodytext").stop().delay(150).animate({top:0});
+							$(".sec1 .solid").stop().animate({left:0});
+							$(".sec1 .solid2").stop().animate({left:0});
+							$(".sec1 .more").stop().delay(500).animate({opacity:1});
+						}
+						
+						else {
+							$(".sec1 .title,.sec1 .subtitle,.sec1 .ttitle,.sec1 .bodytext").stop().animate({top:100});
+							$(".sec1 .solid").stop().animate({left:-100+"%"},100);
+							$(".sec1 .solid2").stop().animate({left:-100+"%"},100);
+							$(".sec1 .more").stop().animate({opacity:0});
+							
+						};
+						
+						if(sl==mh*2){
+							$(".lnb li").animate({"width":20});
+							$(".lnb li").eq(2).animate({"width":75});
+							$(".sec2 .title").stop().animate({top:0});
+							$(".sec2 .subtitle").stop().delay(50).animate({top:0});
+							$(".sec2 .ttitle").stop().delay(100).animate({top:0});
+							$(".sec2 .bodytext").stop().delay(150).animate({top:0});
+							$(".sec2 .solid").stop().animate({right:0});
+							$(".sec2 .solid2").stop().animate({right:0});
+							$(".sec2 .more").stop().delay(500).animate({opacity:1});
+						}
+						
+						else {
+							$(".sec2 .title,.sec2 .subtitle,.sec2 .ttitle,.sec2 .bodytext").stop().animate({top:100});
+							$(".sec2 .solid").stop().animate({right:-100+"%"},100);
+							$(".sec2 .solid2").stop().animate({right:-100+"%"},100);
+							$(".sec2 .more").stop().animate({opacity:0});
+							
+						};
+						
+						if(sl==mh*3){
+							$(".lnb li").animate({"width":20});
+							$(".lnb li").eq(1).animate({"width":75});
+							$(".sec3 .title").stop().animate({top:0});
+							$(".sec3 .subtitle").stop().delay(50).animate({top:0});
+							$(".sec3 .ttitle").stop().delay(100).animate({top:0});
+							$(".sec3 .bodytext").stop().delay(150).animate({top:0});
+							$(".sec3 .solid").stop().animate({left:0});
+							$(".sec3 .solid2").stop().animate({left:0});
+							$(".sec3 .more").stop().delay(500).animate({opacity:1});
+						}
+						
+						else {
+							$(".sec3 .title,.sec3 .subtitle,.sec3 .ttitle,.sec3 .bodytext").stop().animate({top:100});
+							$(".sec3 .solid").stop().animate({left:-100+"%"},100);
+							$(".sec3 .solid2").stop().animate({left:-100+"%"},100);
+							$(".sec3 .more").stop().animate({opacity:0});
+							
+						};
+						
+						if(sl==mh*4){
+							$(".lnb li").animate({"width":20});
+							$(".lnb li").eq(0).animate({"width":75});
+							$(".sec4 .iwrap .t").eq(0).delay(0).animate({top:0},500);
+							$(".sec4 .iwrap .t").eq(1).delay(100).animate({top:0},500);
+							$(".sec4 .iwrap .t").eq(2).delay(150).animate({top:0},500);
+							$(".sec4 .iwrap .t").eq(3).delay(250).animate({top:0},500);
+							
+							$(".sec4 i").eq(0).delay(0).stop().animate({"opacity":1});
+							$(".sec4 i").eq(1).delay(150).stop().animate({"opacity":1});
+							$(".sec4 i").eq(2).delay(250).stop().animate({"opacity":1});
+							
+							$(".sec4 .solid").eq(0).delay(0).stop().animate({top:0},500);
+							$(".sec4 .solid").eq(1).delay(50).stop().animate({top:0},500);
+							$(".sec4 .solid").eq(2).delay(100).stop().animate({top:0},500);
+							
+							$(".sec4 .solid2").eq(0).delay(100).stop().animate({bottom:0},500);
+							$(".sec4 .solid2").eq(1).delay(150).stop().animate({bottom:0},500);
+							$(".sec4 .solid2").eq(2).delay(200).stop().animate({bottom:0},500);
+							
+						}
+						
+						else{
+							$(".sec4 .solid").stop().animate({top:100+"%"},500);
+							$(".sec4 .solid2").stop().animate({bottom:-100+"%"},500);
+							$(".sec4 .iwrap .t").stop().animate({top:100});
+							$(".sec4 i").stop().animate({"opacity":0});
+						};
+						
+						
+																		
+					});
+				});
+			//-->
+		</script>
+	</head>
+	<body>
+		<nav class='lnb'>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</nav>
+		<header class='sec0' data-stellar-background-ratio='0.5'>
+			<nav class='gnb'>
+				<div class='snsWrap'>
+					<i class='fa fa-facebook-square'></i>
+					<i class='fa fa-twitter-square'></i>
+					<i class='fa fa-instagram'></i>
+				</div>
+				<a href='index.html'><img class='logo' src='./images/logo.png'/></a>
+				<ul>
+					<li><a href='1.html'>Caro Emerald</a></li>
+					<li><a href='2.html'>The speakeasies' swing band</a></li>
+					<li><a href='3.html'>Room Eleven</a></li>
+				</ul>
+			</nav>
+			<div class='contain'>
+				<img class='p1' src='./images/p1.png'/>
+				<video id='myVideo' src='./videos/caro.mp4' loop border='0' ></video>
+				<div class='filter'></div>
+				<div class='textwrap'>
+					<div class='hid'><p class='title t'>Modern Jazz Music</p></div>
+					<div class='hid'><p class='subtitle t'>with three star</p></div>
+					<i onclick='pauseVid()' class='fa fa-pause'></i>
+					<i onclick='playVid()' class='fa fa-play'></i>
+					<script> 
+						var vid = document.getElementById("myVideo"); 
+
+						function playVid() { 
+							vid.play(); 
+						} 
+
+						function pauseVid() { 
+							vid.pause(); 
+						}
+						
+					</script> 
+				</div>
+			</div>
+		</header>
+		<section class='sec1' data-stellar-background-ratio='0.5'>
+			<div class='solid'></div>
+			<div class='solid2'></div>
+			
+			<div class='textwrap'>
+				<div class='hid'><p class='title t'>Caro Emerald</p></div>
+				<div class='hid'><p class='subtitle t'><em>the shocking miss emerald</em></p></div>
+				<div class='more t'><a href='1.html'>more</a></div>
+			</div>
+			<div class='subtextwrap'>
+				<div class='hid'><p class='ttitle t'>beautiful voice</p></div>
+				<div class='hid'><p class='bodytext t'>
+					모던 스윙 재즈하면 대표적으로 떠오르는 인물로는 카로 에메랄드가 있다. 이 가수의 노래를 듣고 있으면
+					기분이 들뜨며 흥에 겨워진다.
+				</p></div>
+			</div>
+		</section>
+		<section class='sec2' data-stellar-background-ratio='0.5'>
+			<div class='solid'></div>
+			<div class='solid2'></div>
+			<div class='textwrap'>
+				<div class='hid ehid'><p class='title t'>Speakeasies'</p></div>
+				<div class='hid ehid'><p class='title t'>Swing Band</p></div>
+				<div class='hid ehid'><p class='subtitle t'><em>black swamp village</em></p></div>
+				<div class='more'><a href='2.html'>more</a></div>
+			</div>
+			<div class='subtextwrap'>
+				<div class='hid'><p class='ttitle t'>Unique color</p></div>
+				<div class='hid'><p class='bodytext t'>
+					스피키즈 스윙 밴드만큼 독특한 색깔의 밴드는 없을 것이다. 카로 에메랄드 보다 더 악기연주에 치중되었지만,
+					오히려 더욱 재즈같은 느낌이 든다.
+				</p></div>
+			</div>
+		</section>
+		<section class='sec3' data-stellar-background-ratio='0.5'>
+			<div class='solid'></div>
+			<div class='solid2'></div>
+			<div class='textwrap'>
+				<div class='hid'><p class='title t'>Room Eleven</p></div>
+				<div class='hid'><p class='subtitle t'><em>a pink pussycat</em></p></div>
+				<div class='more'><a href='3.html'>more</a></div>
+			</div>
+			<div class='subtextwrap'>
+				<div class='hid'><p class='ttitle t'>Good music</p></div>
+				<div class='hid'><p class='bodytext t'>
+					좋은 목소리와 좋은 음악으로 많은 사람들을 즐겁게 해주엇던 룸 일레븐. 지금은 해체되었지만 이 밴드가 남긴
+					음악들은 항상 내 재생 목록에 있다.
+				</p>
+			</div></div>
+		</section>
+		<section class='sec4'>
+			<div class='iwrap'>
+				<a href='1.html'><i class='fa fa-sign-out'></i></a>
+				<div class='solid'></div>
+				<div class='solid2'></div>
+				<div class='textwrap'>
+					<div class='wrap'>
+						<a href='1.html'><div class='hid'><p class='title t'>Caro Emerald</p></div></a>
+					</div>
+				</div>
+			</div>
+			<div class='iwrap'>
+				<a href='2.html'><i class='fa fa-sign-out'></i></a>
+				<div class='solid'></div>
+				<div class='solid2'></div>
+				<div class='textwrap'>
+					<div class='wrap'>
+							<div class='hid ehid'>
+								<a href='2.html'><p class='title t'>Speakeasies</p></a>
+							</div>
+							<div class='hid ehid'>
+								<a href='2.html'><p class='title t'>Swing Band!</p></a>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class='iwrap'>
+				<a href='3.html'><i class='fa fa-sign-out'></i></a>
+				<div class='solid'></div>
+				<div class='solid2'></div>
+				<div class='textwrap'>
+					<div class='wrap'>
+						<div class='hid'>
+							<a href='3.html'><p class='title t'>Room Eleven</p></a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+	</body>
+</html>

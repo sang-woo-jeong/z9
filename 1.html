@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>test page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0; font-family: 'Oswald', sans-serif;}
+			ul,ol {list-style:none;}
+			a {text-decoration:none; color:black;}
+			.clear {clear:both;}
+			.title {font-size:80px; font-weight:bold; color:#f6d50c;}
+			.subtitle {font-size:40px; margin-top:10px; color:#50a844;}
+			.bodytext {font-family: 'Nanum Gothic', sans-serif; font-weight:bold; 
+					   color:rgba(0,0,0,.4); line-height:36px; font-size:18px; margin-top:30px;}
+			
+			.mcontain {width:100%; max-width:1920px; margin:0 auto;  position:relative;}
+			.block {width:50px; height:5400px; background:#851d1a; position:absolute; z-index:10;}
+			.sblock {right:0;}
+			.bodytext {font-family: 'Nanum Gothic', sans-serif;}
+			header {background:url(./images/b1-1.png) no-repeat 50% 50% fixed; background-size:cover; width:100%; height:90vh;}
+			header .gnb {height:60px;  position:relative; 
+				  box-shadow:5px 0px 5px 3px #353535; background:white; z-index:99;}
+			header .gnb .snsWrap {position:absolute; top:15px; left:28px;}
+			header .gnb i {font-size:28px; margin-left:12px;}
+			header .gnb .logo {width:45px; position:absolute; top:5px; left:50%; transform:translateX(-50%);}
+			header .gnb ul {position:absolute; top:5px; right:30px; line-height:40px;}
+			header .gnb ul li {float:left; margin-right:28px; font-size:24px;}
+			header .gnb ul li a:hover {color:orange;}			
+			.sec1 {width:100%; height:650px; padding:50px 0px 0px 0px; margin:0 auto; position:relative;}
+			.sec1 .textwrap{width:30%; position:absolute; left:18%;}
+			.sec1 .i1 {width:100px; position:absolute; top:-20px; left:-120px;}
+			.sec1 .d1 {position:absolute; width:600px; max-width:750px; bottom:-50px; right:9%; z-index:99;}
+			.sec2 {padding:30px 0; width:100%; 
+				   background:url('./images/d2-1.png') no-repeat 50% 50% fixed; 
+				   background-size:cover;
+				   position:relative;}
+			
+			.sec2 .imgwrap {width:700px; height:700px; border-left:1px solid white;
+							position:absolute; top:50%; left:25%;
+							transform:translateX(-50%) translateY(-50%);
+							overflow:hidden;}
+			.sec2 .imgwrap img {width:600px; position:absolute; top:50%; left:-50%;
+								transform:translateX(-50%) translateY(-50%);}
+			.sec2 .imgwrap img:nth-child(1) {left:50%;}					
+			.sec2 .textwrap {width:50%; position:relative; left:50%;}
+			.sec2 .textwrap .title {color:white; font-size:64px; margin-left:-50px;}
+			.sec2 .textwrap .hid {height:70px; overflow:hidden; position:relative;}
+			.sec2 .textwrap .mstitle {color:white; font-weight:bold; font-size:52px; 
+									  position:absolute; top:100px;}
+			.sec2 .textwrap .mstitle:nth-child(1) {top:0;}						  
+			.sec2 .textwrap .subtitle { position:absolute; top:100px;}
+			.sec2 .textwrap .subtitle:nth-child(1) { top:0px;}
+			.sec2 .textwrap .bodytext {width:70%; margin-top:20px; color:white; 
+									   position:absolute; top:100px;}
+			.sec2 .textwrap .bodytext:nth-child(1) {top:0;}						   
+			.sec2 .albumwrap {width:100%; margin:30px 0px;  cursor:pointer;}
+			.sec2 .whid {height:220px; position:relative;}
+			.sec2 .trackwrap {position:absolute; height:240px; opacity:0;}
+			.sec2 .trackwrap:nth-child(1) {opacity:1;}
+			.sec2 .track {font-size:20px; font-family: 'Nanum Gothic', sans-serif; 
+						  color:white; line-height:35px;
+						  position:absolute; width:300px;}
+			.sec2 .track:nth-child(2) {left:300px;}
+			.sec2 img {width:220px; margin-right:10px;}
+			
+			.sec3 {position:relative; height:1600px;}
+			.sec3 .title {position:absolute; left:160px; margin:50px 0px;}
+			.sec3 iframe {position:relative; top:230px; left:50%; transform:translateX(-50%);}
+			.sec3 .song {position:relative; top:300px; width:400px; margin:0 auto; 
+						 text-align:center; font-size:36px; font-weight:bold;}
+			
+			.sec3 .contain {width:1500px; position:relative; top:300px; left:50%; 
+							transform:translateX(-50%);}
+			.sec3 .contain .textwrap {width:500px; float:left;}
+			.sec3 .contain .textwrap .bodytext {font-size:15px; padding-left:100px;  
+												overflow:hidden;}
+			
+			.sec4 {position:relative; width:100%; height:400px; position:relative; 
+				   background:url('./images/s1.png') no-repeat 50% 50% fixed; background-size:cover;}
+			
+			.sec5 {position:relative; margin:0 auto; width:70%; height:600px;}
+			.sec5 .textwrap {width:50%; height:430px; margin-top:150px;
+							 text-align:center; float:left;}
+			.sec5 .textwrap:nth-child(1) {border-right:3px dotted #ccc; box-sizing:border-box;}				 
+			.sec5 .textwrap i {font-size:240px;}
+			
+			footer {width:100%; height:400px; background:#851d1a; position:relative;
+					background-size:cover; margin-top:300px;}
+			footer p {position:absolute; top:-100px; font-size:32px;}
+			footer i {position:absolute; top:5px;}
+			footer .previus i{left:-40px;}
+			footer .next i{right:-40px;}
+			footer .previus{left:120px;}
+			footer .next{right:120px;}
+			footer .f1 {width:500px; 
+						position:absolute; bottom:400px; left:50%; 
+						transform:translateX(-50%);}		 
+			footer .logo {position:absolute; top:50%; left:50%;
+						  transform:translateX(-50%) translateY(-50%);}	   
+		</style>
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+		<script>
+			<!--
+				$(document).ready(function(){
+					
+					$(".albumwrap img").click(function(){
+						var i = $(this).index();						
+						$(".albumwrap img").css({"border":"none"});
+						$(this).css({"border":"2px solid white","box-sizing":"border-box"});					
+						$(".imgwrap img").animate({"left":-50+"%"},500);
+						$(".imgwrap img").eq(i).animate({"left":50+"%"},500);
+						
+						$(".sec2 .mstitle").delay(150).animate({"top":100+"px"},500);
+						$(".sec2 .subtitle").delay(50).animate({"top":100+"px"},500);
+						$(".sec2 .bodytext").animate({"top":100+"px"},500);
+						
+						$(".sec2 .mstitle").eq(i).animate({"top":0+"px"},500);
+						$(".sec2 .subtitle").eq(i).delay(50).animate({"top":0+"px"},500);
+						$(".sec2 .bodytext").eq(i).delay(150).animate({"top":0+"px"},500);
+						
+						$(".sec2 .trackwrap").animate({"opacity":0});
+						$(".sec2 .trackwrap").delay(400).eq(i).animate({"opacity":1});
+					});
+					
+				});
+			//-->
+		</script>
+	</head>
+	<body>
+		<div class='mcontain'>
+			<div class='block fblock'></div>
+			<div class='block sblock'></div>
+			<header>
+				<nav class='gnb'>
+					<div class='snsWrap'>
+						<i class='fa fa-facebook-square'></i>
+						<i class='fa fa-twitter-square'></i>
+						<i class='fa fa-instagram'></i>
+					</div>
+					<a href='index.html'><img class='logo' src='./images/logo.png'/></a>
+					<ul>
+						<li><a href='1.html'>Caro Emerald</a></li>
+						<li><a href='2.html'>The speakeasies' swing band</a></li>
+						<li><a href='3.html'>Room Eleven</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section class='sec1'>
+				<div class='textwrap'>
+					<p class='title'>Caro emerald</p>
+					<p class='subtitle'><em>artist in Naberlands</em></p>
+					<p class='bodytext'>
+						카로 에메랄드는 그랜드 모노사에 소속되어 있고, 본명은 카롤린 에스메랄다 
+						판데르에이우이며 네덜란드를 대표하는 스윙 재즈 가수이다. 우리나라에서는 
+						프라이머리의 표절 논란으로 알려지기 시작한 아티스트이지만, 네덜란드에서는 
+						마이클 잭슨의 기록을 깨버리는 등 세계적으로유명한 팝 가수이다.
+					</p>					
+				</div>
+				
+				<img class='d1' src='./images/d1.png'/>
+			</section>
+			<section class='sec2'>
+				<div class='imgwrap'>
+					<img src='./images/a1.png'/>
+					<img src='./images/a2.png'/>
+					<img src='./images/a3.png'/>
+				</div>
+				<div class='textwrap'>
+					<p class='title'>Her Albums</p>
+					<div class='albumwrap'>
+						<img src='./images/a1.png'/>
+						<img src='./images/a2.png'/>
+						<img src='./images/a3.png'/>
+					</div>
+					<div class='hid'>
+						<p class='mstitle'>1st album</p>
+						<p class='mstitle'>2nd album</p>
+						<p class='mstitle'>3rd album</p>
+					</div>
+					<div class='hid'>
+						<p class='subtitle'><em>Deleted scenes from the cuting room floor</em></p>
+						<p class='subtitle'><em>The shocking miss emerald</em></p>
+						<p class='subtitle'><em>Emerald island</em></p>
+					</div>
+					<div class='hid'>
+						<p class='bodytext'>2010 . 01 . 29</p>
+						<p class='bodytext'>2013 . 05 . 03</p>
+						<p class='bodytext'>2017 . 03 . 06</p>
+					</div>
+					<div class='whid'>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. That Man<br/>
+								2. Just One Dance<br/>
+								3. Riviera Life<br/>
+								4. Back it Up<br/>
+								5. The Other Woman<br/>
+								6. Absolutely Me
+							</p>
+							
+							<p class='track'>
+								7. You Don’t Love Me<br/>
+								8. Dr. Wanna Do<br/>
+								9. Stuck<br/>
+								10. I Know That He’s Mine<br/>
+								11. A Night Like This<br/>
+								12. The Lipstick On His Collar<br/>
+							</p>
+						</div>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. Miss Emerald: Intro<br/>
+								2. One Day<br/>
+								3. coming Back as a Man<br/>
+								4. Tangled Up<br/>
+								5. Completely<br/>
+								6. Black Valentine
+							</p>
+							
+							<p class='track'>
+								7. Pack up the Louie<br/>
+								8. I Belong to You<br/>
+								9. The Maestro<br/>
+								10. Liquid Lunch<br/>
+								11. Excuse My French<br/>
+								12. Paris<br/>
+							</p>
+						</div>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. Tahitian Skies<br/>
+								2. The Ghost Of You<br/>
+								3. Never Ever							
+							</p>
+							
+							<p class='track'>
+								4. Exotic Flu<br/>
+								5. Whatchugot<br/>
+								6. The Dark<br/>
+								
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='sec3'>
+				<p class='title'>Music videos</p>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/GbYpfveIxAQ" 
+				frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<p class='song'>Stuck - Caro emerald</p>				
+				<div class='contain'>
+					<div class='textwrap textwrap1'>
+						<p class='bodytext'>
+							I close my eyes and dream about a sunny holiday<br/>
+							I wish that I was beachin' down on Saint Tropez<br/>
+							Or sitting in the lobby at the fabulous Pierre<br/>
+							With diamonds on my fingers and not a single care<br/>
+							Instead I'm on the Avenue where nobody goes<br/>
+							With fields of green that wilted like a last summer rose<br/>
+							Some people call it paradise, but I call it pain<br/>
+							Baby take me anywhere, but not here again<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do
+						</p>
+					</div>
+					<div class='textwrap textwrap2'>
+						<p class='bodytext'>
+							You promised me a motorcade and endless perfume<br/>
+							A palace in Geneva with a perfect view<br/>
+							And dreams painted yellow like the colour of gold<br/>
+							And dine with kings and queens until the food gets cold<br/>
+							Instead I'm on the edge of all I thought I would be<br/>
+							This dream is now a comedy I don't wanna see<br/>
+							Some people call it laughter but I call it pain<br/>
+							Baby take me anywhere but not here again<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do
+						</p>
+					</div>
+					<div class='textwrap textwrap3'>
+						<p class='bodytext'>
+							I know we have a chemistry<br/>
+							This combination's heavenly<br/>
+							But don't forget you promised me<br/>
+							Everything, everything<br/>
+							I know we have a chemistry<br/>
+							This combination's heavenly<br/>
+							But don't forget that you promised me<br/>
+							Everything<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do<br/>
+							Why am I sitting in the middle of nowhere<br/>
+							Standing here with nothing to do<br/>
+							Wondering if I really love you, oh oh<br/>
+							I guess that I do
+						</p>
+					</div>				
+				</div>
+				
+			</section>
+			<section class='sec4'>
+				
+			</section>
+			<section class='sec5'>
+				<div class='textwrap'>
+					<i class="fa fa-amazon" aria-hidden="true"></i>
+					<p class='title'>Buy her albums</p>
+					<p class='subtitle'>https://www.amazon.com</p>
+				</div>
+				<div class='textwrap'>
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+					<p class='title'>More Information</p>
+					<p class='subtitle'>https://www.caroemerald.com</p>
+				</div>
+			</section>
+			<footer>
+				<a href='3.html'>
+					<p class='previus'>
+						<i class='fa fa-arrow-left'></i>
+						Room Eleven
+					</p>
+				</a>	
+				<a href='2.html'>
+					<p class='next'>				
+						The Speakeasies' Swing Band
+						<i class='fa fa-arrow-right'>
+						</i>
+					</p>
+				</a>	
+				<img class='f1' src='./images/f1.png'/>
+				<a href='index.html'><img class='logo' src='./images/logo2.png'/></a>
+			</footer>
+		</div>
+	</body>
+</html>

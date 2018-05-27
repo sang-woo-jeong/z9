@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>test page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0; font-family: 'Oswald', sans-serif;}
+			ul,ol {list-style:none;}
+			body {overflow-x:hidden;}
+			a {text-decoration:none; color:black;}
+			.clear {clear:both;}
+			.title {font-size:56px; font-weight:bold; color:#e96e69;}
+			
+			.bodytext {font-family: 'Nanum Gothic', sans-serif; font-weight:bold; 
+					   color:rgba(0,0,0,.4); line-height:36px; font-size:18px; margin-top:30px;}
+			
+			.mcontain {width:100%; max-width:1920px; margin:0 auto;  position:relative;}
+			.block {width:50px; height:5500px; background:#739c26; position:absolute; z-index:10;}
+			.sblock {right:0;}
+			.bodytext {font-family: 'Nanum Gothic', sans-serif;}
+			.subtitle {font-size:40px; margin-top:10px; color:#654b34;}
+			header {background:url(./images/b4.png) no-repeat 50% 50% fixed; 
+					background-size:cover; width:100%; height:90vh;}
+			header .gnb {height:60px;  position:relative; 
+				  box-shadow:5px 0px 5px 3px #353535; background:white; z-index:99;}
+			header .gnb .snsWrap {position:absolute; top:15px; left:28px;}
+			header .gnb i {font-size:28px; margin-left:12px;}
+			header .gnb .logo {width:45px; position:absolute; top:5px; left:50%; transform:translateX(-50%);}
+			header .gnb ul {position:absolute; top:5px; right:30px; line-height:40px;}
+			header .gnb ul li {float:left; margin-right:28px; font-size:24px;}
+			header .gnb ul li a:hover {color:orange;}		
+			.sec1 {width:100%; height:650px; padding:50px 0px 0px 0px; margin:0 auto; position:relative;}
+			.sec1 .textwrap{width:50%; position:absolute; left:75%; transform:translateX(-50%);}
+			.sec1 .bodytext {width:650px;}
+			.sec1 .cp {position:absolute; right:27%; bottom:15%; line-height:32px;}
+			.sec1 .i1 {width:100px; position:absolute; top:-20px; left:-120px;}
+			.sec1 .imgwrap {position:absolute; left:25%; top:50%; transform:translateX(-50%) translateY(-50%);}
+			.sec1 .d5 {width:615px; max-width:750px;}
+			
+			.sec2 {width:100%; 
+				   background:url('./images/d6.png') no-repeat 50% 50% fixed; 
+				   background-size:cover;
+				   position:relative;}
+			.sec2 .subtitle {color:#ffa9a9;}
+			.sec2 .imgwrap {width:700px; height:700px; border-left:1px solid white;
+							position:absolute; top:50%; left:25%;
+							transform:translateX(-50%) translateY(-50%);
+							overflow:hidden;}
+			.sec2 .imgwrap img {width:600px; position:absolute; top:50%; left:-50%;
+								transform:translateX(-50%) translateY(-50%);}
+			.sec2 .imgwrap img:nth-child(1) {left:50%;}					
+			.sec2 .textwrap {padding-left:50px; width:50%; position:relative; left:50%; 
+							 background:rgba(115,156,38,.6);}
+			.sec2 .textwrap .title {color:white; font-size:64px; margin-left:-50px;}
+			.sec2 .textwrap .hid {height:70px; overflow:hidden; position:relative;}
+			.sec2 .textwrap .mstitle {color:white; font-weight:bold; font-size:52px; 
+									  position:absolute; top:100px;}
+			.sec2 .textwrap .mstitle:nth-child(1) {top:0;}						  
+			.sec2 .textwrap .subtitle { position:absolute; top:100px;}
+			.sec2 .textwrap .subtitle:nth-child(1) { top:0px;}
+			.sec2 .textwrap .bodytext {width:70%; margin-top:20px; color:white; 
+									   position:absolute; top:100px;}
+			.sec2 .textwrap .bodytext:nth-child(1) {top:0;}						   
+			.sec2 .albumwrap {width:100%; margin:30px 0px;  cursor:pointer;}
+			.sec2 .whid {height:220px; position:relative;}
+			.sec2 .trackwrap {position:absolute; height:240px; opacity:0;}
+			.sec2 .trackwrap:nth-child(1) {opacity:1;}
+			.sec2 .track {font-size:20px; font-family: 'Nanum Gothic', sans-serif; 
+						  color:white; line-height:35px;
+						  position:absolute; width:300px;}
+			.sec2 .track:nth-child(2) {left:300px;}
+			.sec2 img {width:220px; margin-right:10px;}
+			.sec3 {position:relative; height:1450px; }
+			.sec3 .title {position:absolute; font-size:80px; left:160px; margin:50px 0px; }
+			.sec3 iframe {position:relative; top:230px; left:50%; transform:translateX(-50%);}
+			.sec3 .song {position:relative; top:300px; text-align:center; font-size:36px; font-weight:bold;}
+			.sec3 .contain {width:600px; position:relative; top:300px; left:50%; 
+							transform:translateX(-50%); background:red;}
+			.sec3 .contain .textwrap {width:300px; float:left;}
+			.sec3 .contain .textwrap .bodytext {font-size:15px; padding-left:50px;}
+			.sec4 {position:relative; width:100%; height:700px; position:relative; 
+				   background:url('./images/s3.png') no-repeat 50% 50%; background-size:cover;}
+			.sec4 .s3-1 {width:800px; position:absolute; left:50%; top:50%; 
+						 transform:translateX(-50%) translateY(-50%);}
+			.sec5 {position:relative; margin:0 auto; width:70%; height:600px;}
+			.sec5 .textwrap {width:50%; height:430px; margin-top:150px;
+							 text-align:center; float:left;}
+			.sec5 .textwrap:nth-child(1) {border-right:3px dotted #ccc; box-sizing:border-box;}				 
+			.sec5 .textwrap i {font-size:240px;}			 
+			footer {width:100%; height:400px; background:#739c26; position:relative;
+					background-size:cover; margin-top:300px;}
+			footer p {position:absolute; top:-100px; font-size:32px;}
+			footer i {position:absolute; top:5px;}
+			footer .previus i{left:-40px;}
+			footer .next i{right:-40px;}
+			footer .previus{left:120px;}
+			footer .next{right:120px;}		
+			footer .f3 {position:absolute; width:500px; bottom:400px; left:50%; transform:translateX(-50%);}
+			footer .logo {position:absolute; top:50%; left:50%;
+						  transform:translateX(-50%) translateY(-50%);}	   
+		</style>
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+		<script>
+			<!--
+				$(document).ready(function(){
+					
+					$(".albumwrap img").click(function(){
+						var i = $(this).index();						
+						$(".albumwrap img").css({"border":"none"});
+						$(this).css({"border":"2px solid white","box-sizing":"border-box"});					
+						$(".imgwrap img").animate({"left":-50+"%"},500);
+						$(".imgwrap img").eq(i+1).animate({"left":50+"%"},500);
+						
+						$(".sec2 .mstitle").delay(150).animate({"top":100+"px"},500);
+						$(".sec2 .subtitle").delay(50).animate({"top":100+"px"},500);
+						$(".sec2 .bodytext").animate({"top":100+"px"},500);
+						
+						$(".sec2 .mstitle").eq(i).animate({"top":0+"px"},500);
+						$(".sec2 .subtitle").eq(i).delay(50).animate({"top":0+"px"},500);
+						$(".sec2 .bodytext").eq(i).delay(150).animate({"top":0+"px"},500);
+						
+						$(".sec2 .trackwrap").animate({"opacity":0});
+						$(".sec2 .trackwrap").delay(400).eq(i).animate({"opacity":1});
+					});
+					
+				});
+			//-->
+		</script>
+	</head>
+	<body>
+		<div class='mcontain'>
+			<div class='block fblock'></div>
+			<div class='block sblock'></div>
+			<header>
+				<nav class='gnb'>
+					<div class='snsWrap'>
+						<i class='fa fa-facebook-square'></i>
+						<i class='fa fa-twitter-square'></i>
+						<i class='fa fa-instagram'></i>
+					</div>
+					<a href='index.html'><img class='logo' src='./images/logo.png'/></a>
+					<ul>
+						<li><a href='1.html'>Caro Emerald</a></li>
+						<li><a href='2.html'>The speakeasies' swing band</a></li>
+						<li><a href='3.html'>Room Eleven</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section class='sec1'>
+				<div class='textwrap'>
+					<p class='title'>Room eleven</p>
+					<p class='subtitle'><em>band in Netherlands</em></p>
+					<p class='bodytext'>
+						Universal Music Group에 소속되어 있는 Room eleven는 네더란드의 유명 밴드이다.
+						2001년에 처음보였으며, 2004년에 정식 데뷔를했다. 2009년 까지 활동 했었으며, 몇몇 
+						몇몇 멤버들은 Schradinova라는 이름으로 활동 중이다.   
+					</p>					
+				</div>
+				<p class='cp'>
+						<img class='i1' src='./images/i1.png'/>
+						공식 웹사이트<br/>
+						<a href='https://www.caroemerald.com/'>https://www.caroemerald.com/</a>
+					</p>
+				<div class='imgwrap'><img class='d5' src='./images/d5.png'/></div>
+			</section>
+			<section class='sec2'>
+				<div class='imgwrap'>
+					<img src='./images/a6.jpg'/>
+					<img src='./images/a7.jpg'/>
+				</div>
+				<div class='textwrap'>
+					<p class='title'>Her Albums</p>
+					<div class='albumwrap'>
+						<img src='./images/a6.jpg'/>
+						<img src='./images/a7.jpg'/>
+					</div>
+					<div class='hid'>
+						<p class='mstitle'>1st album</p>
+						<p class='mstitle'>2nd album</p>
+					</div>
+					<div class='hid'>
+						<p class='subtitle'><em>Six White Russians and a Pink Pussycat</em></p>
+						<p class='subtitle'><em>Mmm... Gumbo?</em></p>
+					</div>
+					<div class='hid'>
+						<p class='bodytext'>2006 . 06 . 12</p>
+						<p class='bodytext'>2008 . 03 . 12</p>
+					</div>
+					<div class='whid'>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. All Right<br/>
+								2. One Of These Days<br/>
+								3. 	Sad Song<br/>
+								4. Faith<br/>
+								5. Could That Be You?<br/>
+								6. Flavour <br/>
+								7. Pressing<br/>
+								8. 	It's Raining
+								
+							</p>
+							
+							<p class='track'>
+								9. You Made Me See It<br/>
+								10. Greenest Grass<br/>
+								11. Come Closer<br/>
+								12. Somedays<br/>
+								13. Tried To Be<br/>
+								14. Listen<br/>
+								15. I Wanna Be Your ...
+							</p>
+						</div>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. Hey Hey Hey!<br/>
+								2. What Will It Be?<br/>
+								3. Lalala Love<br/>
+								4. Looking At My Feet<br/>
+								5. Swimmer<br/>
+								6. Ode<br/>
+								7. Lovely Morning<br/>
+								
+							</p>					
+							<p class='track'>
+								8. Seeds<br/>
+								9. Not Jealous<br/>
+								10. Shyness<br/>
+								11. Always<br/>
+								12. Rainy Day In The Sun<br/>
+								13. A Little Of Me<br/>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='sec3'>
+				<p class='title'>Music videos</p>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/K6tfaWL8DnY" 
+				frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<p class='song'>La La La Love - Room Eleven</p>
+				<div class='contain'>
+					<div class='textwrap textwrap1'>
+						<p class='bodytext'>
+							I can’t write about love no more<br/>
+							I should be feeling sad<br/>
+							Now I know it wasn’t you<br/>
+							Who drove me mad<br/>
+							It was the chemical<br/>
+							Stuff in my head<br/>
+							La la la la la love<br/>
+							Phenylethylamine<br/>
+							Can’t get enough<br/>
+							La la la la la l’amour
+						</p>
+					</div>
+					<div class='textwrap textwrap2'>
+						<p class='bodytext'>
+							Noradrenaline<br/>
+							Je comprends<br/>
+							La la la la la Liebe<br/>
+							Endorfine<br/>
+							Ich kann nicht genug bekommen<br/>
+							When they’ve just arrived<br/>
+							I know exactly when<br/>
+							Oh, I am feeling so alive<br/>
+							But I know when they’re gone again<br/>
+							I have to find me another man
+						</p>
+					</div>
+					
+				</div>
+			</section>
+			<section class='sec4'>
+				<img class='s3-1' src='./images/s3-1.png'/>
+			</section>
+			<section class='sec5'>
+				<div class='textwrap'>
+					<i class="fa fa-amazon" aria-hidden="true"></i>
+					<p class='title'>Buy her albums</p>
+					<p class='subtitle'>https://www.amazon.com</p>
+				</div>
+				<div class='textwrap'>
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+					<p class='title'>More Information</p>
+					<p class='subtitle'>https://www.roomeleven.nl</p>
+				</div>
+			</section>
+			<footer>
+				<a href='2.html'>
+					<p class='previus'>
+						<i class='fa fa-arrow-left'></i>
+						the Speakeasies' Swing Band!
+					</p>
+				</a>	
+				<a href='1.html'>
+					<p class='next'>
+						Caro Emerald
+						<i class='fa fa-arrow-right'>
+						</i>
+					</p>
+				</a>	
+				<img class='f3' src='./images/f3.png'/>
+				<a href='index.html'><img class='logo' src='./images/logo2.png'/></a>
+			</footer>
+		</div>
+	</body>
+</html>

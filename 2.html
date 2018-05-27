@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>test page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0; font-family: 'Oswald', sans-serif;}
+			ul,ol {list-style:none;}
+			body {overflow-x:hidden;}
+			
+			a {text-decoration:none; color:black;}
+			.clear {clear:both;}
+			.title {font-size:56px; font-weight:bold; color:#654b34;}
+			
+			.bodytext {font-family: 'Nanum Gothic', sans-serif; font-weight:bold; 
+					   color:rgba(0,0,0,.4); line-height:36px; font-size:18px; margin-top:30px;}
+			
+			.mcontain {width:100%; max-width:1920px; margin:0 auto;  position:relative;}
+			.block {width:50px; height:5600px; background:#4f3f31; position:absolute; z-index:10;}
+			.sblock {right:0;}
+			.bodytext {font-family: 'Nanum Gothic', sans-serif;}
+			.subtitle {font-size:40px; margin-top:10px; color:#d9c0a3;}
+			header {background:url(./images/b2.jpg) no-repeat 0% 0% fixed; 
+					background-size:cover; width:100%; height:90vh;}
+			header .gnb {height:60px;  position:relative; 
+				  box-shadow:5px 0px 5px 3px #353535; background:white; z-index:99;}
+			header .gnb .snsWrap {position:absolute; top:15px; left:28px;}
+			header .gnb i {font-size:28px; margin-left:12px;}
+			header .gnb .logo {width:45px; position:absolute; top:5px; left:50%; transform:translateX(-50%);}
+			header .gnb ul {position:absolute; top:5px; right:30px; line-height:40px;}
+			header .gnb ul li {float:left; margin-right:28px; font-size:24px;}
+			header .gnb ul li a:hover {color:orange;}		
+			.sec1 {width:100%; height:650px; padding:50px 0px 0px 0px; margin:0 auto; position:relative;}
+			.sec1 .textwrap{width:50%; position:absolute; left:75%; transform:translateX(-50%);}
+			.sec1 .bodytext {width:650px;}
+			.sec1 .cp {position:absolute; right:27%; bottom:15%; line-height:32px;}
+			.sec1 .i1 {width:100px; position:absolute; top:-20px; left:-120px;}
+			.sec1 .imgwrap {position:absolute; left:25%; transform:translateX(-50%);}
+			.sec1 .d3 {width:615px; max-width:750px;}
+			
+			.sec2 {padding:30px 0; width:100%; 
+				   background:url('./images/d4.png') no-repeat 50% 50% fixed; 
+				   background-size:cover;
+				   position:relative;}
+			
+			.sec2 .imgwrap {width:700px; height:700px; border-left:1px solid white;
+							position:absolute; top:50%; left:25%;
+							transform:translateX(-50%) translateY(-50%);
+							overflow:hidden;}
+			.sec2 .imgwrap img {width:600px; position:absolute; top:50%; left:-50%;
+								transform:translateX(-50%) translateY(-50%);}
+			.sec2 .imgwrap img:nth-child(1) {left:50%;}					
+			.sec2 .textwrap {width:50%; position:relative; left:50%;}
+			.sec2 .textwrap .title {color:white; font-size:64px; margin-left:-50px;}
+			.sec2 .textwrap .hid {height:70px; overflow:hidden; position:relative;}
+			.sec2 .textwrap .mstitle {color:white; font-weight:bold; font-size:52px; 
+									  position:absolute; top:100px;}
+			.sec2 .textwrap .mstitle:nth-child(1) {top:0;}						  
+			.sec2 .textwrap .subtitle { position:absolute; top:100px;}
+			.sec2 .textwrap .subtitle:nth-child(1) { top:0px;}
+			.sec2 .textwrap .bodytext {width:70%; margin-top:20px; color:white; 
+									   position:absolute; top:100px;}
+			.sec2 .textwrap .bodytext:nth-child(1) {top:0;}						   
+			.sec2 .albumwrap {width:100%; margin:30px 0px;  cursor:pointer;}
+			.sec2 .whid {height:220px; position:relative;}
+			.sec2 .trackwrap {position:absolute; height:240px; opacity:0;}
+			.sec2 .trackwrap:nth-child(1) {opacity:1;}
+			.sec2 .track {font-size:20px; font-family: 'Nanum Gothic', sans-serif; 
+						  color:white; line-height:35px;
+						  position:absolute; width:300px;}
+			.sec2 .track:nth-child(2) {left:300px;}
+			.sec2 img {width:220px; margin-right:10px;}
+			.sec3 {position:relative; height:1450px; }
+			.sec3 .title {position:absolute; font-size:80px; left:160px; margin:50px 0px; }
+			.sec3 iframe {position:relative; top:230px; left:50%; transform:translateX(-50%);}
+			.sec3 .song {position:relative; top:300px; text-align:center; font-size:36px; font-weight:bold;}
+			.sec3 .contain {width:600px; position:relative; top:300px; left:50%; 
+							transform:translateX(-50%); background:red;}
+			.sec3 .contain .textwrap {width:300px; float:left;}
+			.sec3 .contain .textwrap .bodytext {font-size:15px; padding-left:50px;}
+			.sec4 {position:relative; width:100%; height:700px; position:relative; 
+				   background:url('./images/s2.jpg') no-repeat 50% 50% fixed; background-size:cover;}
+						 
+			.sec5 {position:relative; margin:0 auto; width:70%; height:600px;}
+			.sec5 .textwrap {width:50%; height:430px; margin-top:150px;
+							 text-align:center; float:left;}
+			.sec5 .textwrap:nth-child(1) {border-right:3px dotted #ccc; box-sizing:border-box;}				 
+			.sec5 .textwrap i {font-size:240px;}
+			
+			footer {width:100%; height:400px; background:#4f3f31; position:relative;
+					background-size:cover; margin-top:300px;}
+			footer p {position:absolute; top:-100px; font-size:32px;}
+			footer i {position:absolute; top:5px;}
+			footer .previus i{left:-40px;}
+			footer .next i{right:-40px;}
+			footer .previus{left:120px;}
+			footer .next{right:120px;}		
+			footer .f2 {position:absolute; width:500px; bottom:400px; left:50%; transform:translateX(-50%);}
+			footer .logo {position:absolute; top:50%; left:50%;
+						  transform:translateX(-50%) translateY(-50%);}	 	   
+		</style>
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+		<script>
+			<!--
+				$(document).ready(function(){
+					
+					$(".albumwrap img").click(function(){
+						var i = $(this).index();						
+						$(".albumwrap img").css({"border":"none"});
+						$(this).css({"border":"2px solid white","box-sizing":"border-box"});					
+						$(".imgwrap img").animate({"left":-50+"%"},500);
+						$(".imgwrap img").eq(i+1).animate({"left":50+"%"},500);
+						
+						$(".sec2 .mstitle").delay(150).animate({"top":100+"px"},500);
+						$(".sec2 .subtitle").delay(50).animate({"top":100+"px"},500);
+						$(".sec2 .bodytext").animate({"top":100+"px"},500);
+						
+						$(".sec2 .mstitle").eq(i).animate({"top":0+"px"},500);
+						$(".sec2 .subtitle").eq(i).delay(50).animate({"top":0+"px"},500);
+						$(".sec2 .bodytext").eq(i).delay(150).animate({"top":0+"px"},500);
+						
+						$(".sec2 .trackwrap").animate({"opacity":0});
+						$(".sec2 .trackwrap").delay(400).eq(i).animate({"opacity":1});
+					});
+					
+				});
+			//-->
+		</script>
+	</head>
+	<body>
+		<div class='mcontain'>
+			<div class='block fblock'></div>
+			<div class='block sblock'></div>
+			<header>
+				<nav class='gnb'>
+					<div class='snsWrap'>
+						<i class='fa fa-facebook-square'></i>
+						<i class='fa fa-twitter-square'></i>
+						<i class='fa fa-instagram'></i>
+					</div>
+					<a href='index.html'><img class='logo' src='./images/logo.png'/></a>
+					<ul>
+						<li><a href='1.html'>Caro Emerald</a></li>
+						<li><a href='2.html'>The speakeasies' swing band</a></li>
+						<li><a href='3.html'>Room Eleven</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section class='sec1'>
+				<div class='textwrap'>
+					<p class='title'>The speakeasies swing band</p>
+					<p class='subtitle'><em>band in Greece</em></p>
+					<p class='bodytext'>
+						Liquid Bass record에 소속되어 있는 The speakesies sing band는 그리스의 유명 밴드이다.
+						2010년 5월에 SwingALONICA에서 처음으로 나타났으며, 그리스와 태국 등 많은 나라를
+						돌아다니며 공연을 했다.   
+					</p>					
+				</div>
+				<p class='cp'>
+						<img class='i1' src='./images/i1.png'/>
+						공식 웹사이트<br/>
+						<a href='https://www.caroemerald.com/'>https://www.caroemerald.com/</a>
+					</p>
+				<div class='imgwrap'><img class='d3' src='./images/d3.png'/></div>
+			</section>
+			<section class='sec2'>
+				<div class='imgwrap'>
+					<img src='./images/a4.png'/>
+					<img src='./images/a5.png'/>
+				</div>
+				<div class='textwrap'>
+					<p class='title'>Her Albums</p>
+					<div class='albumwrap'>
+						<img src='./images/a4.png'/>
+						<img src='./images/a5.png'/>
+					</div>
+					<div class='hid'>
+						<p class='mstitle'>1st album</p>
+						<p class='mstitle'>2nd album</p>
+					</div>
+					<div class='hid'>
+						<p class='subtitle'><em>Lend of plenty</em></p>
+						<p class='subtitle'><em>The shocking miss emerald</em></p>
+					</div>
+					<div class='hid'>
+						<p class='bodytext'>2010 . 01 . 29</p>
+						<p class='bodytext'>2013 . 05 . 03</p>
+					</div>
+					<div class='whid'>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. sinner's Advice<br/>
+								2. My Baby Kicked Me Out<br/>
+								3. Parla Più Piano<br/>
+								4. S. Ballad<br/>
+								5. Cash or Check?
+								
+							</p>
+							
+							<p class='track'>
+								6. Pera vrechi<br/>
+								7. To Danio<br/>
+								8. Gypsy Curse<br/>
+								9. Please Love Me<br/>
+								10. Deal With the Devil
+							</p>
+						</div>
+						<div class='trackwrap'>
+							<p class='track'>
+								1. Bright Lights Late Nights<br/>
+								2. I Istoria tou Zormpa<br/>
+								3. Liquid Paradise<br/>
+								4. Black Swamp Village
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class='sec3'>
+				<p class='title'>Music videos</p>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/cY0ZZkBOHaU" frameborder="0" 
+				 allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<p class='song'>Bright Lights Late Nights - the Speakeaies’ Swing band!</p>
+				<div class='contain'>
+					<div class='textwrap textwrap1'>
+						<p class='bodytext'>
+							Streets and noises,<br/>
+							Thousand faces<br/>
+							The scars of dusk...<br/>
+							Never leave traces<br/>
+							The day is falling,<br/>
+							falling into sleep<br/>
+							Voices promising the <br/>
+							sweetest dreams<br/>
+							In the land of Lethe...<br/>
+							You know how it feels<br/>
+							Swinging sirens
+
+						</p>
+					</div>
+					<div class='textwrap textwrap2'>
+						<p class='bodytext'>
+							Running after me<br/>
+							So take me out...<br/>
+							For one more night<br/>
+							You know...<br/>
+							I can't live without these<br/>
+							Bright, bright lights<br/>
+							Strings of night playing lullabies<br/>
+							In my head...<br/>
+							(there are) So many surprises<br/>
+							The night is falling.<br/>
+							Falling into sleep
+						</p>
+					</div>
+					
+				</div>
+			</section>
+			<section class='sec4'></section>
+			<section class='sec5'>
+				<div class='textwrap'>
+					<i class="fa fa-amazon" aria-hidden="true"></i>
+					<p class='title'>Buy her albums</p>
+					<p class='subtitle'>https://www.amazon.com</p>
+				</div>
+				<div class='textwrap'>
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+					<p class='title'>More Information</p>
+					<p class='subtitle'>https://speakeasies.gr</p>
+				</div>
+			</section>
+			<footer>
+				<a href='1.html'>
+					<p class='previus'>
+						<i class='fa fa-arrow-left'></i>
+						Caro Emerald
+					</p>
+				</a>	
+				<a href='3.html'>
+					<p class='next'>
+						Room Eleven
+						<i class='fa fa-arrow-right'>
+						</i>
+					</p>
+				</a>	
+				<img class='f2' src='./images/f2.png'/>
+				<a href='index.html'><img class='logo' src='./images/logo2.png'/></a>
+			</footer>
+		</div>
+	</body>
+</html>
